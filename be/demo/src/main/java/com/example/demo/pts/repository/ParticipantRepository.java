@@ -8,12 +8,12 @@ import com.example.demo.pts.domain.Participant;
 
 interface ParticipantCustomRepository {
 	
-	/*@Query("INSERT INTO participants(name, gender, phone_number, email, birthday, regdate) "
-			+ "values(:name, :gender, :phone_number, :email, :birthday, :regdate)")
+	@Query(value = "INSERT INTO participants(name, gender, phone_number, email, birthday, reg_date) "
+			+ "values(:name, :gender, :phone_number, :email, :birthday, :regdate)", nativeQuery = true)
 	Participant save(
 			@Param("name") String name, @Param("gender") String gender, @Param("phone_number") String phoneNumber,
 			@Param("email") String email, @Param("birthday") String birthday, @Param("regdate") String regdate);
-	*/
+	
 	
 }
 

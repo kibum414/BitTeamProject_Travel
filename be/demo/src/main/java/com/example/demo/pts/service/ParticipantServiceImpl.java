@@ -3,6 +3,7 @@ package com.example.demo.pts.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.cmm.service.AbstractService;
@@ -19,73 +20,45 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 	private final ParticipantRepository repo;
 	
 	@Override
-	public void register(ParticipantDto participantDto) throws Exception {
-		
-	}
-
-	@Override
-	public void modify(ParticipantDto participantDto) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void remove(Long participantNo) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ParticipantDto detail(Long participantNo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ParticipantDto> list() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public long count() {
 		// TODO Auto-generated method stub
-		return 0;
+		return repo.count();
 	}
 
 	@Override
 	public boolean existsById(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return repo.existsById(null);
 	}
 
 	@Override
 	public List<Participant> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findAll();
 	}
 
 	@Override
-	public Optional<Participant> findOne() {
+	public Optional<Participant> findOne(Example<Participant> example) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findOne(example);
 	}
 
 	@Override
 	public void deleteById(long id) {
 		// TODO Auto-generated method stub
-		
+		repo.deleteById(id);
+	}
+	
+	@Override
+	public Participant save(Participant entity) {
+		return repo.save(entity);
 	}
 
 	@Override
 	public Participant getOne(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.getOne(id);
 	}
 
-	@Override
-	public Participant save(Participant entity) {
-		return repo.save(entity);
-	}
 
 }

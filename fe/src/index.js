@@ -13,6 +13,7 @@ import App from './App';
 // import ArticleList from './bbs/component/ArticleList';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
+//import ParticipantForm from './pts/component/ParticipantRegisterForm';
 
 ReactDOM.render(
   <React.StrictMode>
