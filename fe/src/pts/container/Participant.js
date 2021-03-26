@@ -6,7 +6,7 @@ const Participant = () => {
 
   return (
     <>
-      <Link to="/ParticipantForm">캠페인 참가 등록</Link>
+      <Link to="/participants/register">캠페인 참가 등록</Link>
     </>
   )
 }

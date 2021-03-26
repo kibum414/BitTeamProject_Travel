@@ -20,35 +20,64 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 	private final ParticipantRepository repo;
 	
 	@Override
+	public void register(Participant participant) throws Exception {
+		repo.save(participant);
+	}
+
+	@Override
+	public void modify(Participant participant) throws Exception {
+		repo.save(participant);
+	}
+
+	/*
+	@Override
+	public void delete(Long participantNo) throws Exception {
+		repo.deleteById(participantNo);
+	}
+
+	@Override
+	public ParticipantDto detail(Long participantNo) throws Exception {
+		Participant participantDto = repo.getOne(participantNo);
+		
+		return repo.getOne(participantNo);
+	}
+
+	@Override
+	public List<ParticipantDto> list() throws Exception {
+		return repo.findAll();
+	}
+	*/
+
+	@Override
 	public long count() {
 		// TODO Auto-generated method stub
-		return repo.count();
+		return 0;
 	}
 
 	@Override
 	public boolean existsById(long id) {
 		// TODO Auto-generated method stub
-		return repo.existsById(null);
+		return false;
 	}
 
 	@Override
 	public List<Participant> findAll() {
 		// TODO Auto-generated method stub
-		return repo.findAll();
+		return null;
 	}
 
 	@Override
 	public Optional<Participant> findOne(Example<Participant> example) {
 		// TODO Auto-generated method stub
-		return repo.findOne(example);
+		return null;
 	}
 
 	@Override
 	public void deleteById(long id) {
 		// TODO Auto-generated method stub
-		repo.deleteById(id);
+		
 	}
-	
+
 	@Override
 	public Participant save(Participant entity) {
 		return repo.save(entity);
@@ -57,8 +86,7 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 	@Override
 	public Participant getOne(long id) {
 		// TODO Auto-generated method stub
-		return repo.getOne(id);
+		return null;
 	}
-
 
 }

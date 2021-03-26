@@ -9,6 +9,7 @@ import lombok.Data;
 @Component
 @Data
 public class ParticipantDto implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	private long participantNo;
 	private String name;
@@ -17,4 +18,5 @@ public class ParticipantDto implements Serializable {
 	private String email;
 	private String birthday;
 	private String regdate;
+	
 }

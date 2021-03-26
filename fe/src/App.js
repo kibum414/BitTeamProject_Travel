@@ -15,8 +15,8 @@ const App = () => {
       <Route path="/Counter" component={Counter} />
       <Route path="/Login" component={Login} />
       <Route path="/SignUp" component={SignUp} />
-      <Route path="/Participant" component={Participant} />
-      <Route path="/ParticipantForm" component={ParticipantForm} />
+      <Route path="/participants" component={Participant} />
+      <Route path="/participants/register" component={ParticipantForm} />
     </>
   )
 }

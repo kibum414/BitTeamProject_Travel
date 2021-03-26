@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
@@ -35,4 +36,5 @@ public class Participant {
 	
 	@Column(name = "reg_date")
 	private String regdate;
+	
 }
