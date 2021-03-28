@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
         <Link to={"Counter"}>Counter</Link><br />
         <Link to={"Login"}>Login</Link><br />
         <Link to={"SignUp"}>SignUp</Link><br />
-        <Link to={"participants"}>Participant</Link>
+        <Link to={"participants/list"}>Participant</Link>
 
       </div>
     </>

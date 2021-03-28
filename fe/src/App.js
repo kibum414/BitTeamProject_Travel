@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Counter from './cmm/container/Counter'
 import Login from './sec/container/Login'
 import SignUp from './uss/container/SignUp'
 import Home from './cmm/container/Home'
 import { Route } from 'react-router-dom'
-import ParticipantForm from './pts/component/ParticipantRegisterForm'
-import Participant from './pts/container/Participant'
+import ParticipantRegister from './pts/container/ParticipantRegisterPage'
+import ParticipantList from './pts/container/ParticipantListPage'
 
 const App = () => {
 
@@ -15,8 +15,8 @@ const App = () => {
       <Route path="/Counter" component={Counter} />
       <Route path="/Login" component={Login} />
       <Route path="/SignUp" component={SignUp} />
-      <Route path="/participants" component={Participant} />
-      <Route path="/participants/register" component={ParticipantForm} />
+      <Route path="/participants/register" component={ParticipantRegister} />
+      <Route path="/participants/list" component={ParticipantList} />
     </>
   )
 }
