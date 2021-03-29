@@ -10,16 +10,19 @@ const ParticipantForm = () => {
   const { name, gender, birthday, phoneNumber, email } = inputs
 
   const inputChange = e => {
+    const { name, value } = e.target
+    console.log(inputs)
+
     setInputs({
       ...inputs,
-      [e.target.name]: e.target.value
+      [name]: value
     })
   }
 
   const participantRegister = (e) => {
     e.preventDefault()
 
-    alert('클릭 1')
+    alert('등록 !')
 
     axios.post(`http://localhost:8080/participants`, {
       name,
@@ -27,18 +30,18 @@ const ParticipantForm = () => {
       birthday,
       phoneNumber,
       email,
-      regdate: Date()
+      regdate: new Date()
     })
-    .then(res => {
-      alert(`res : ${JSON.stringify(res.data)}`)
-    })
-    .catch(err => {
-      alert(`err : ${err}`)
-    })
+      .then(res => {
+        console.log(`res : ${JSON.stringify(res.data)}`)
+      })
+      .catch(err => {
+        console.log(`err : ${err}`)
+      })
   }
 
   return (
-    <form onSubmit={participantRegister}>
+    <form onSubmit={participantRegister} style={{ margin: "0 auto" }}>
       <div className="content">
         <label for="name">이름</label>
         <input type="text" id="name" name="name" onChange={inputChange} placeholder="이름을 입력하세요." required />
@@ -64,8 +67,10 @@ const ParticipantForm = () => {
       </div>
 
       <div>
-        <Link to="/participant/list"><button>취소</button></Link>
-        <button type="submit">등록</button>
+        <Link to="/participants/list">
+          <button className="cancelbtn">취소</button>
+        </Link>
+        <button type="submit" className="participatebtn">등록</button>
       </div>
     </form>
   )

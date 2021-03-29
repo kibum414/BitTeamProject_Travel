@@ -7,6 +7,9 @@ const ParticipantList = () => (
 
     <List />
     
+    <Link to="">
+      <button>홈으로</button>
+    </Link>
     <Link to="/participants/register">
       <button>등록</button>
     </Link>
