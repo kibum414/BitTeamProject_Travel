@@ -18,35 +18,6 @@ import lombok.RequiredArgsConstructor;
 public class ParticipantServiceImpl extends AbstractService<Participant> implements ParticipantService {
 
 	private final ParticipantRepository repo;
-	
-	@Override
-	public void register(Participant participant) throws Exception {
-		repo.save(participant);
-	}
-
-	@Override
-	public void modify(Participant participant) throws Exception {
-		repo.save(participant);
-	}
-
-	/*
-	@Override
-	public void delete(Long participantNo) throws Exception {
-		repo.deleteById(participantNo);
-	}
-
-	@Override
-	public ParticipantDto detail(Long participantNo) throws Exception {
-		Participant participantDto = repo.getOne(participantNo);
-		
-		return repo.getOne(participantNo);
-	}
-
-	@Override
-	public List<ParticipantDto> list() throws Exception {
-		return repo.findAll();
-	}
-	*/
 
 	@Override
 	public long count() {
@@ -62,8 +33,7 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 
 	@Override
 	public List<Participant> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findAll();
 	}
 
 	@Override
@@ -76,6 +46,12 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 	public void deleteById(long id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Optional<Participant> findById(long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.example.demo.pts.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,6 @@ public class ParticipantDto implements Serializable {
 	private String phoneNumber;
 	private String email;
 	private String birthday;
-	private String regdate;
+	private Date regdate;
 	
 }

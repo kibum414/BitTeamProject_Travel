@@ -9,12 +9,10 @@ import com.example.demo.pts.domain.Participant;
 
 interface ParticipantCustomRepository {
 	
-	
-	
 }
 
 public interface ParticipantRepository extends JpaRepository<Participant, Long>, ParticipantCustomRepository {
-	
+	/*
 	@Modifying
 	@Query(value = "INSERT INTO participants(name, gender, phone_number, email, birthday, reg_date) "
 			+ "values(:name, :gender, :phone_number, :email, :birthday, :reg_date)", nativeQuery = true)

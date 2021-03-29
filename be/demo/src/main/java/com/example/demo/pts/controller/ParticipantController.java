@@ -1,16 +1,21 @@
 package com.example.demo.pts.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.pts.domain.Participant;
-import com.example.demo.pts.domain.ParticipantDto;
 import com.example.demo.pts.service.ParticipantServiceImpl;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +29,7 @@ public class ParticipantController {
 	private final ParticipantServiceImpl service;
 	
 	@PostMapping("")
-	public ResponseEntity<Participant> register(
+	public ResponseEntity<?> register(
 			@Validated @RequestBody Participant participant) throws Exception {
 		System.out.println("Participant register");
 		
@@ -36,44 +41,42 @@ public class ParticipantController {
 		return new ResponseEntity<>(participant, HttpStatus.OK);
 	}
 	
-	/*
-	@PutMapping("/{ParticipantDtoNo}")
-	public ResponseEntity<ParticipantDto> modify(
-			@PathVariable("ParticipantDtoNo") Long ParticipantDtoNo, 
-			@Validated @RequestBody ParticipantDto ParticipantDto) throws Exception {
-		System.out.println("ParticipantDto modify");
+	@GetMapping("/list")
+	public ResponseEntity<List<Participant>> list() throws Exception {
+		System.out.println("Participant list");
 		
-		ParticipantDto.setParticipantDtoNo(ParticipantDtoNo);
-		service.modify(ParticipantDto);
-		
-		return new ResponseEntity<>(ParticipantDto, HttpStatus.OK);
+		return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{ParticipantDtoNo}")
-	public ResponseEntity<Void> delete(
-			@PathVariable("ParticipantDtoNo") Long ParticipantDtoNo) throws Exception {
-		System.out.println("ParticipantDto delete");
+	@GetMapping("/list/{ParticipantNo}")
+	public ResponseEntity<Participant> detail(
+			@PathVariable("ParticipantNo") Long participantNo) throws Exception {
+		System.out.println("Participant read");
 		
-		service.delete(ParticipantDtoNo);
+		Participant participant = service.getOne(participantNo);
+		
+		return new ResponseEntity<>(participant, HttpStatus.OK);
+	}
+	
+	@PutMapping("/{ParticipantNo}")
+	public ResponseEntity<Participant> modify(
+			@PathVariable("ParticipantNo") Long participantNo, 
+			@Validated @RequestBody Participant participant) throws Exception {
+		System.out.println("Participant modify");
+		
+		participant.setParticipantNo(participantNo);
+		service.findById(participantNo);
+		
+		return new ResponseEntity<>(participant, HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/{ParticipantNo}")
+	public ResponseEntity<Void> delete(
+			@PathVariable("ParticipantNo") Long participantNo) throws Exception {
+		System.out.println("Participant delete");
+		
+		service.deleteById(participantNo);
 		
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
-	
-	@GetMapping("/{ParticipantDtoNo}")
-	public ResponseEntity<ParticipantDto> detail(
-			@PathVariable("ParticipantDtoNo") Long ParticipantDtoNo) throws Exception {
-		System.out.println("ParticipantDto read");
-		
-		ParticipantDto ParticipantDto = service.detail(ParticipantDtoNo);
-		
-		return new ResponseEntity<>(ParticipantDto, HttpStatus.OK);
-	}
-	
-	@GetMapping("")
-	public ResponseEntity<List<ParticipantDto>> list() throws Exception {
-		System.out.println("ParticipantDto list");
-		
-		return new ResponseEntity<>(service.list(), HttpStatus.OK);
-	}
-	*/
 }

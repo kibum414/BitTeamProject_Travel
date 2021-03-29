@@ -1,12 +1,13 @@
 package com.example.demo.pts.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Entity
@@ -35,6 +36,6 @@ public class Participant {
 	private String birthday;
 	
 	@Column(name = "reg_date")
-	private String regdate;
+	private Date regdate;
 	
 }
