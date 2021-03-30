@@ -30,8 +30,9 @@ public class ParticipantController {
 	private final ParticipantServiceImpl service;
 	
 	@PostMapping("")
-	public ResponseEntity<?> register(
+	public ResponseEntity<Participant> register(
 			@Validated @RequestBody Participant participant) throws Exception {
+		
 		System.out.println("Participant register");
 		
 		service.save(participant);
@@ -44,6 +45,7 @@ public class ParticipantController {
 	
 	@GetMapping("")
 	public ResponseEntity<List<Participant>> list() throws Exception {
+		
 		System.out.println("Participant list");
 		
 		return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
@@ -52,6 +54,7 @@ public class ParticipantController {
 	@GetMapping("/{ParticipantNo}")
 	public ResponseEntity<Optional<Participant>> detail(
 			@PathVariable("ParticipantNo") Long participantNo) throws Exception {
+		
 		System.out.println("Participant read");
 		
 		return new ResponseEntity<>(service.findById(participantNo), HttpStatus.OK);
@@ -61,6 +64,7 @@ public class ParticipantController {
 	public ResponseEntity<Participant> modify(
 			@PathVariable("ParticipantNo") Long participantNo, 
 			@Validated @RequestBody Participant participant) throws Exception {
+		
 		System.out.println("Participant modify");
 		
 		service.modify(participantNo, participant);
@@ -71,6 +75,7 @@ public class ParticipantController {
 	@DeleteMapping("/{ParticipantNo}")
 	public ResponseEntity<Void> delete(
 			@PathVariable("ParticipantNo") Long participantNo) throws Exception {
+		
 		System.out.println("Participant delete");
 		
 		service.deleteById(participantNo);
