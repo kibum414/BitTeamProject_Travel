@@ -1,6 +1,7 @@
 package com.example.demo.pts.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,21 +42,19 @@ public class ParticipantController {
 		return new ResponseEntity<>(participant, HttpStatus.OK);
 	}
 	
-	@GetMapping("/list")
+	@GetMapping("")
 	public ResponseEntity<List<Participant>> list() throws Exception {
 		System.out.println("Participant list");
 		
 		return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/list/{ParticipantNo}")
-	public ResponseEntity<Participant> detail(
+	@GetMapping("/{ParticipantNo}")
+	public ResponseEntity<Optional<Participant>> detail(
 			@PathVariable("ParticipantNo") Long participantNo) throws Exception {
 		System.out.println("Participant read");
 		
-		Participant participant = service.getOne(participantNo);
-		
-		return new ResponseEntity<>(participant, HttpStatus.OK);
+		return new ResponseEntity<>(service.findById(participantNo), HttpStatus.OK);
 	}
 	
 	@PutMapping("/{ParticipantNo}")

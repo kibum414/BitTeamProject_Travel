@@ -44,14 +44,12 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 
 	@Override
 	public void deleteById(long id) {
-		// TODO Auto-generated method stub
-		
+		repo.deleteById(id);
 	}
 
 	@Override
 	public Optional<Participant> findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findById(id);
 	}
 
 	@Override
@@ -61,8 +59,7 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 
 	@Override
 	public Participant getOne(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.getOne(id);
 	}
 
 }
