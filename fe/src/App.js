@@ -6,6 +6,8 @@ import Home from './cmm/container/Home'
 import { Route } from 'react-router-dom'
 import ParticipantRegister from './pts/container/ParticipantRegisterPage'
 import ParticipantList from './pts/container/ParticipantListPage'
+import ParticipantDetail from './pts/component/ParticipantDetail'
+import ParticipantModify from './pts/component/ParticipantModify'
 
 const App = () => {
 
@@ -17,6 +19,8 @@ const App = () => {
       <Route path="/SignUp" component={SignUp} />
       <Route path="/participants/register" component={ParticipantRegister} />
       <Route path="/participants/list" component={ParticipantList} />
+      <Route path="/participants/detail/:id" component={ParticipantDetail} />
+      <Route path="/participants/modify/:id" component={ParticipantModify} />
     </>
   )
 }

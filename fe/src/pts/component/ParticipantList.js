@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../css/List.css'
@@ -30,18 +30,17 @@ const ParticipantList = () => {
         <thead>
           <tr>
             <th>번호</th>
-            <th colSpan="10">이름</th>
+            <th>이름</th>
             <th>신청일</th>
           </tr>
         </thead>
         <tbody>
           {
-            list.map(participant =>
+            list.map((participant) =>
               <tr>
                 <td key={participant.participantNo}>{participant.participantNo}</td>
-                
-                <td colSpan="10">
-                  <Link to={`/participants/list/${participant.participantNo}`}>
+                <td>
+                  <Link to={`/participants/detail/${participant.participantNo}`}>
                     {participant.name}
                   </Link>
                 </td>

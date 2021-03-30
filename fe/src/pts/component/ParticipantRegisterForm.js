@@ -34,6 +34,7 @@ const ParticipantForm = () => {
     })
       .then(res => {
         console.log(`res : ${JSON.stringify(res.data)}`)
+        window.location = `/participants/list`
       })
       .catch(err => {
         console.log(`err : ${err}`)
@@ -49,8 +50,8 @@ const ParticipantForm = () => {
         <label for="gender">성별</label>
         <select id="gender" name="gender" onChange={inputChange} required>
           <option value="">성별</option>
-          <option value="man">남자</option>
-          <option value="woman">여자</option>
+          <option value="남">남자</option>
+          <option value="여">여자</option>
         </select>
 
         <label for="birthday">생년월일</label>
