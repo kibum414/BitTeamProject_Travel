@@ -25,9 +25,9 @@ public interface ParticipantRepository extends JpaRepository<Participant, Long>,
 	@Transactional
 	@Modifying
 	@Query(value = "UPDATE participants SET name = :name, gender = :gender, phone_number = :phone_number, "
-			+ "email = :email, birthday = :birthday", nativeQuery = true)
+			+ "email = :email, birthday = :birthday WHERE participant_no = :participant_no", nativeQuery = true)
 	public void modify(
 			@Param("name") String name, @Param("gender") String gender, @Param("phone_number") String phoneNumber,
-			@Param("email") String email, @Param("birthday") String birthday);
+			@Param("email") String email, @Param("birthday") String birthday, @Param("participant_no") Long participantNo);
 	
 }

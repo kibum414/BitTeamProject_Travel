@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.cmm.service.AbstractService;
 import com.example.demo.pts.domain.Participant;
-import com.example.demo.pts.domain.ParticipantDto;
 import com.example.demo.pts.repository.ParticipantRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -64,8 +63,10 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 
 	@Override
 	public Participant modify(long id, Participant participant) {
+		participant.setParticipantNo(id);
+		
 		repo.modify(participant.getName(), participant.getGender(), participant.getPhoneNumber(),
-				participant.getEmail(), participant.getBirthday());
+				participant.getEmail(), participant.getBirthday(), participant.getParticipantNo());
 		System.out.println(participant);
 		
 		return participant;
