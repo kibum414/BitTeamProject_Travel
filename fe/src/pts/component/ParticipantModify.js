@@ -31,7 +31,9 @@ const ParticipantModify = (props) => {
       email
     })
       .then(res => {
+        alert(`수정 !`)
         console.log(res)
+        props.history.push(`/participants/detail/${props.match.params.id}`)
       })
   }
 
@@ -74,7 +76,7 @@ const ParticipantModify = (props) => {
         <Link to="/participants/list">
           <button className="cancelbtn">취소</button>
         </Link>
-        <button type="submit" className="participatebtn">등록</button>
+        <button type="submit" className="participatebtn">수정</button>
       </div>
     </form>
   )

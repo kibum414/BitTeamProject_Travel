@@ -63,8 +63,7 @@ public class ParticipantController {
 			@Validated @RequestBody Participant participant) throws Exception {
 		System.out.println("Participant modify");
 		
-		participant.setParticipantNo(participantNo);
-		service.findById(participantNo);
+		service.modify(participantNo, participant);
 		
 		return new ResponseEntity<>(participant, HttpStatus.OK);
 	}

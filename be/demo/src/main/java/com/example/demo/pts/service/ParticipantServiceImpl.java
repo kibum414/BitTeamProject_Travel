@@ -62,4 +62,13 @@ public class ParticipantServiceImpl extends AbstractService<Participant> impleme
 		return repo.getOne(id);
 	}
 
+	@Override
+	public Participant modify(long id, Participant participant) {
+		repo.modify(participant.getName(), participant.getGender(), participant.getPhoneNumber(),
+				participant.getEmail(), participant.getBirthday());
+		System.out.println(participant);
+		
+		return participant;
+	}
+
 }

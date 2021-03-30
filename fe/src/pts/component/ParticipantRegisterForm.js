@@ -50,8 +50,8 @@ const ParticipantForm = () => {
         <label for="gender">성별</label>
         <select id="gender" name="gender" onChange={inputChange} required>
           <option value="">성별</option>
-          <option value="남">남자</option>
-          <option value="여">여자</option>
+          <option value="남자">남자</option>
+          <option value="여자">여자</option>
         </select>
 
         <label for="birthday">생년월일</label>
