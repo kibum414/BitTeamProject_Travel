@@ -67,7 +67,7 @@ const ParticipantForm = () => {
         <input type="text" id="email" name="email" onChange={inputChange} placeholder="선택 입력" />
       </div>
 
-      <div>
+      <div className="container">
         <Link to="/participants/list">
           <button className="cancelbtn">취소</button>
         </Link>

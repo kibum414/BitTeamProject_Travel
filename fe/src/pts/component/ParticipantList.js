@@ -1,35 +1,15 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import '../css/List.css'
 
-const ParticipantList = () => {
-
-  const [list, setList] = useState([])
-
-  const getList = () => {
-    axios.get(`http://localhost:8080/participants`)
-      .then(res => {
-        console.log(res)
-        setList(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
-
-  useEffect(() => {
-    console.log('getList')
-
-    getList()
-  }, [])
+const ParticipantList = ({ list, indexOfFirstPost }) => {
 
   return (
     <>
-      <table>
+      <table className="table table-hover">
         <thead>
           <tr>
-            <th>번호</th>
+            <th className="postNum">번호</th>
             <th>이름</th>
             <th>신청일</th>
           </tr>
@@ -37,8 +17,8 @@ const ParticipantList = () => {
         <tbody>
           {
             list.map((participant) =>
-              <tr>
-                <td key={participant.participantNo}>{participant.participantNo}</td>
+              <tr key={participant.participantNo}>
+                <td className="postNum">{++indexOfFirstPost}</td>
                 <td>
                   <Link to={`/participants/detail/${participant.participantNo}`}>
                     {participant.name}

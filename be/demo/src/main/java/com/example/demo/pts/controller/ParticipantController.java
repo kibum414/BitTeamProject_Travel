@@ -37,7 +37,7 @@ public class ParticipantController {
 		
 		service.save(participant);
 		
-		System.out.println("register Participant.getParticipantNo = "
+		System.out.println("register ParticipantNo = "
 				+ participant.getParticipantNo());
 		
 		return new ResponseEntity<>(participant, HttpStatus.OK);

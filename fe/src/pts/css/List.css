@@ -14,3 +14,33 @@ th, td {
   text-align: left;
   padding: 10px;
 }
+
+tr:hover {
+  background-color: #ccc;
+}
+
+.postNum {
+  text-align: center;
+}
+
+.pagination {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.pagination > li {
+  display: inline-block;
+  width: 20px;
+  height: 30px;
+  margin-right: 1px;
+}
+
+.pagination > li:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.btn {
+  width: 400px;
+  float: right;
+}
