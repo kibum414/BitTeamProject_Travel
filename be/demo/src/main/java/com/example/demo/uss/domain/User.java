@@ -25,6 +25,12 @@ public class User {
 	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "birthday")
+	private String birthday;
+	
+	@Column(name = "gender")
+	private String gender;
+	
 	@Column(name = "email")
 	private String email;
 	

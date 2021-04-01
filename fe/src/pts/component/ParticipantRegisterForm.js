@@ -42,8 +42,8 @@ const ParticipantForm = () => {
   }
 
   return (
-    <form onSubmit={participantRegister} style={{ margin: "0 auto" }}>
-      <div className="content">
+    <form onSubmit={participantRegister}>
+      <div className="container">
         <label for="name">이름</label>
         <input type="text" id="name" name="name" onChange={inputChange} placeholder="이름을 입력하세요." required />
         
@@ -68,10 +68,10 @@ const ParticipantForm = () => {
       </div>
 
       <div className="container">
+        <button type="submit" className="participatebtn">등록</button>
         <Link to="/participants/list">
           <button className="cancelbtn">취소</button>
         </Link>
-        <button type="submit" className="participatebtn">등록</button>
       </div>
     </form>
   )

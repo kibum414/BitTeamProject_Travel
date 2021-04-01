@@ -7,8 +7,8 @@ const Home = () => {
       <div style={{ width: 150, margin: "0 auto" }}>
         <h1>Home</h1>
         <Link to={"Counter"}>Counter</Link><br />
-        <Link to={"Login"}>Login</Link><br />
-        <Link to={"SignUp"}>SignUp</Link><br />
+        <Link to={"login"}>Login</Link><br />
+        <Link to={"signup"}>SignUp</Link><br />
         <Link to={"participants/list"}>Participant</Link>
 
       </div>

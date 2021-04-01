@@ -26,44 +26,37 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
 	@Override
 	public boolean existsById(long id) {
-		// TODO Auto-generated method stub
-		return false;
+		return repo.existsById(id);
 	}
 
 	@Override
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findAll();
 	}
 
 	@Override
 	public Optional<User> findOne(Example<User> example) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findOne(example);
 	}
 
 	@Override
 	public void deleteById(long id) {
-		// TODO Auto-generated method stub
-		
+		repo.deleteById(id);
 	}
 
 	@Override
 	public Optional<User> findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findById(id);
 	}
 
 	@Override
 	public User save(User entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.save(entity);
 	}
 
 	@Override
 	public User getOne(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.getOne(id);
 	}
 	
 }

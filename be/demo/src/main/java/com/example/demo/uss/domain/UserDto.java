@@ -14,10 +14,20 @@ public class UserDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private long userNo;
+	
 	private String username;
+	
 	private String password;
+	
 	private String name;
+	
+	private String birthday;
+	
+	private String gender;
+	
 	private String email;
+	
 	private String phoneNumber;
-	private Date regdate; 
+	
+	private Date regdate;
 }

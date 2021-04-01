@@ -15,8 +15,8 @@ const App = () => {
     <>
       <Route path="/" component={Home} exact />
       <Route path="/Counter" component={Counter} />
-      <Route path="/Login" component={Login} />
-      <Route path="/SignUp" component={SignUp} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={SignUp} />
       <Route path="/participants/register" component={ParticipantRegister} />
       <Route path="/participants/list" component={ParticipantList} />
       <Route path="/participants/detail/:id" component={ParticipantDetail} />
