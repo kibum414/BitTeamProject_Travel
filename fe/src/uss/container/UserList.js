@@ -1,4 +1,4 @@
-import '../component/UserList.css';
+import '../css/UserList.css';
 
 const UserList = () =>
 (

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../component/SignUp.css';
+import '../css/SignUp.css';
 import axios from 'axios'
 
 const SignUp = () => {

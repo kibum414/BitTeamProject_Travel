@@ -1,4 +1,4 @@
-import '../component/UserDetail.css';
+import '../css/UserDetail.css';
 
 const UserDetail = () =>
 (

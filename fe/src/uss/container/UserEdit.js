@@ -1,4 +1,4 @@
-import '../component/SignUp.css';
+import '../css/SignUp.css';
 
 const UserEdit = () =>
 (
