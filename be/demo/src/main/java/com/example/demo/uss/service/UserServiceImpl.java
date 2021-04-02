@@ -58,5 +58,10 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	public User getOne(long id) {
 		return repo.getOne(id);
 	}
+
+	@Override
+	public String login(User user) {
+		return repo.login(user.getUsername(), user.getPassword());
+	}
 	
 }

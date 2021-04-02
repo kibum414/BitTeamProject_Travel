@@ -1,5 +1,7 @@
 package com.example.demo.uss.service;
 
-public interface UserService {
+import com.example.demo.uss.domain.User;
 
+public interface UserService {
+	public String login(User user);
 }

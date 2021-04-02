@@ -24,7 +24,7 @@ const ParticipantList = ({ list, indexOfFirstPost }) => {
                     {participant.name}
                   </Link>
                 </td>
-                  <td>{participant.regdate}</td>
+                <td>{participant.regdate}</td>
               </tr>
             )
           }

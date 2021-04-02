@@ -9,7 +9,6 @@ const ParticipantDetail = (props) => {
     axios.get(`http://localhost:8080/participants/${props.match.params.id}`)
       .then(res => {
         console.log(res)
-
         setDetail(res.data)
       })
       .catch(err => {

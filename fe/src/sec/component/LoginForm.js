@@ -1,17 +1,18 @@
 import axios from 'axios'
-import { get } from 'jquery'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const LoginForm = () => {
   const [inputs, setInputs] = useState({})
-  const [list, setList] = useState({})
 
   const { username, password } = inputs
 
-  const userLogin = () => {
+  const userLogin = e => {
+    e.preventDefault()
+
     axios({
-      method: "get",
-      url: 'http://localhost:8080/users/list',
+      method: "post",
+      url: 'http://localhost:8080/users/login',
       data: {
         username,
         password
@@ -19,22 +20,14 @@ const LoginForm = () => {
     })
       .then(res => {
         console.log(`res: ${JSON.stringify(res)}`)
-        setList(res.data)
-        
-        list.map = () => {
-          if (list.username === inputs.username) {
-            if (list.password === inputs.password) {
-              alert(`로그인 성공 !`)
-            } else {
-              alert(`비밀번호가 틀렸습니다.`)
-            }
-          } else {
-            alert(`아이디가 틀렸습니다.`)
-          }
-        }
+        setInputs(res.data)
+
+        alert('로그인 성공 !')
       })
       .catch(err => {
-        console.log(`err: ${err}`)
+        console.log(`${err}`)
+
+        alert('아이디와 비밀번호를 확인하세요.')
       })
   }
 
@@ -61,7 +54,9 @@ const LoginForm = () => {
 
         <div className="btn_area">
           <button type="submit" className="signupbtn"><b>로그인</b></button>
-          <button type="button" className="cancelbtn"><b>돌아가기</b></button>
+          <Link to = "/">
+            <button type="button" className="cancelbtn"><b>돌아가기</b></button>
+          </Link>
         </div>
       </div>
     </form>

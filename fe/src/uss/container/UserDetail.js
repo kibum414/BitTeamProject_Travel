@@ -1,31 +1,53 @@
+import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+
+
 import '../css/UserDetail.css';
 
-const UserDetail = () =>
-(
-  <form style={{ border: "1px solid #ccc" }}>
-    <div className="container">
-      <h1>User Detail</h1>
-      <hr />
+const UserDetail = () => {
+  const [detailInfo, setDetailInfo] = useState({})
 
-      <label for="name"><b>Name</b></label>
-      <input type="text" name="name" readOnly />
+  const getDetailInfo = () => {
+    axios.get(`http://localhost:8080/detail/${props.match.params.id}`)
+      .then(res => {
+        console.log(res)
+        setDetailInfo(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" name="email" readOnly />
+  useEffect(() => {
+    getDetailInfo()
+  }, [])
+  
+  return (
+    <form style={{ border: "1px solid #ccc" }}>
+      <div className="container">
+        <h1>회원정보</h1>
+        <hr />
 
-      <label for="phone"><b>Phone Number</b></label>
-      <input type="text" name="phone" readOnly />
+        <label for="name"><b>이름</b></label>
+        <input type="text" name="name" readOnly />
 
-      <label for="address"><b>Address</b></label>
-      <input type="text" name="address" readOnly />
+        <label for="email"><b>Email</b></label>
+        <input type="text" name="email" readOnly />
 
-      <div className="clearfix">
-        <button type="button" className="modifybtn">Modify</button>
-        <button type="button" className="deletebtn">Delete</button>
-        <button type="button" className="listbtn">List</button>
+        <label for="phone"><b>Phone Number</b></label>
+        <input type="text" name="phone" readOnly />
+
+        <label for="address"><b>Address</b></label>
+        <input type="text" name="address" readOnly />
+
+        <div className="clearfix">
+          <button type="button" className="modifybtn">Modify</button>
+          <button type="button" className="deletebtn">Delete</button>
+          <button type="button" className="listbtn">List</button>
+        </div>
       </div>
-    </div>
-  </form>
-)
+    </form>
+  )
+}
 
 export default UserDetail

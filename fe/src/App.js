@@ -8,6 +8,7 @@ import ParticipantRegister from './pts/container/ParticipantRegisterPage'
 import ParticipantList from './pts/container/ParticipantListPage'
 import ParticipantDetail from './pts/component/ParticipantDetail'
 import ParticipantModify from './pts/component/ParticipantModify'
+import UserList from './uss/container/UserListPage'
 
 const App = () => {
 
@@ -17,6 +18,9 @@ const App = () => {
       <Route path="/Counter" component={Counter} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
+
+      <Route path="/users/list" component={UserList} />
+
       <Route path="/participants/register" component={ParticipantRegister} />
       <Route path="/participants/list" component={ParticipantList} />
       <Route path="/participants/detail/:id" component={ParticipantDetail} />

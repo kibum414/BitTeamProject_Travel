@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import '../css/SignUp.css';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
-const SignUpForm = (props) => {
-  const [inputs, setInputs] = useState({})
+const SignUpForm = ({ history }) => {
+  const [userInfo, setUserInfo] = useState({})
 
-  const { username, password, name, birthday, gender, email, phone } = inputs
+  const { username, password, name, birthday, gender, email, phone } = userInfo
 
   const inputChange = e => {
     const { name, value } = e.target
-    console.log(inputs)
+    console.log(userInfo)
 
-    setInputs({
-      ...inputs,
+    setUserInfo({
+      ...userInfo,
       [name]: value
     })
   }
@@ -37,11 +38,11 @@ const SignUpForm = (props) => {
       }
     })
       .then(res => {
-        console.log(`res: ${res.data}`)
-        props.history.push('/')
+        console.log(`res: ${JSON.stringify(res.data)}`)
+        history.push('login')
       })
       .catch(err => {
-        console.log(`err: ${err}`)
+        console.log(`${err}`)
       })
   }
 
@@ -80,7 +81,9 @@ const SignUpForm = (props) => {
 
         <div className="btn_area">
           <button type="submit" className="signupbtn"><b>가입하기</b></button>
-          <button type="button" className="cancelbtn"><b>돌아가기</b></button>
+          <Link to = "/">
+            <button type="button" className="cancelbtn"><b>돌아가기</b></button>
+          </Link>
         </div>
       </div>
     </form>
